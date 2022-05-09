@@ -1,8 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "./components/Header";
-import Welcome from "./components/Welcome";
+import Welcome from "./pages/Welcome";
 import CandidateCard from "./components/Card";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -38,19 +38,6 @@ const App = () => {
     return func;
   };
 
-  // const listObjects = convertObject(objects)
-  // console.log("list of objects" + listObjects)
-  const loopCandidates = (objects) => {
-    for (let key in objects) {
-      return (
-        // eslint-disable-next-line react/jsx-key
-        <Col key={key} className="pb-3">
-          <CandidateCard candidate={log(objects[key])} />
-        </Col>
-      );
-    }
-  };
-
   const makeArray = (objects) => {
     let array = [];
     for (let key in objects) {
@@ -75,13 +62,12 @@ const App = () => {
           <Row xs={1} md={2} lg={3}>
             {objectArray.map((object, i) => (
               // eslint-disable-next-line react/jsx-key
-              // eslint-disable-next-line react/jsx-key
               <Col key={i} className="pb-3">
-                <CandidateCard 
-                firstlast={log(object.firstlast)} 
-                office={log(object.candidate_office)}
-                cid={log(object.cid)}
-                website={log(object.website)}
+                <CandidateCard
+                  firstlast={log(object.firstlast)}
+                  office={log(object.congress_office)}
+                  party={log(object.party)}
+                  website={log(object.website)}
                 />
               </Col>
             ))}

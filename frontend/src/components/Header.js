@@ -11,19 +11,19 @@ import {
 
 const Header = ({ title, word, setWord, handleSubmit }) => {
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar collapseOnSelect bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="#home">{title}</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav
             className="mb-auto me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link to="/">Home</Nav.Link>
+            <Nav.Link to="">Features</Nav.Link>
+            <Nav.Link to="/states">States</Nav.Link>
           </Nav>
           <Form onSubmit={handleSubmit} className="d-flex">
             <FormControl
@@ -34,7 +34,9 @@ const Header = ({ title, word, setWord, handleSubmit }) => {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="primary" type="submit">Search</Button>
+            <Button variant="primary" type="submit">
+              Search
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>
